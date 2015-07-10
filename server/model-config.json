@@ -6,19 +6,19 @@
       "./node_modules/loopbackcomponentpassport/lib/models"
     ]
   },
-  "user": {
+  "PLBUser": {
     "dataSource": "db",
     "public": true
   },
-  "accessToken": {
+  "UserAccessToken": {
     "dataSource": "db",
     "public": true
   },
-  "userCredential": {
+  "ForeignCredential": {
     "dataSource": "db",
     "public": true
   },
-  "userIdentity": {
+  "ForeignIdentity": {
     "dataSource": "db",
     "public": true
   },

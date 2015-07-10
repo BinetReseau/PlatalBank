@@ -1,21 +1,21 @@
 {
-  "name": "user",
-  "plural": "users",
+  "name": "PLBUser",
+  "plural": "PLBUsers",
   "base": "User",
   "relations": {
     "accessTokens": {
       "type": "hasMany",
-      "model": "accessToken",
+      "model": "UserAccessToken",
       "foreignKey": "userId"
     },
     "identities": {
       "type": "hasMany",
-      "model": "userIdentity",
+      "model": "ForeignIdentity",
       "foreignKey": "userId"
     },
     "credentials": {
       "type": "hasMany",
-      "model": "userCredential",
+      "model": "ForeignCredential",
       "foreignKey": "userId"
     }
   },

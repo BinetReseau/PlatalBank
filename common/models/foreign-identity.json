@@ -1,13 +1,13 @@
 {
-  "name": "userIdentity",
-  "plural": "userIdentities",
+  "name": "ForeignIdentity",
+  "plural": "ForeignIdentities",
   "base": "UserIdentity",
   "properties": {},
   "validations": [],
   "relations": {
     "user": {
       "type": "belongsTo",
-      "model": "user",
+      "model": "PLBUser",
       "foreignKey": "userId"
     }
   },

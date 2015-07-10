@@ -1,13 +1,13 @@
 {
-  "name": "userCredential",
-  "plural": "userCredentials",
-  "base": "UserCredential",
+  "name": "UserAccessToken",
+  "plural": "UserAccessTokens",
+  "base": "AccessToken",
   "properties": {},
   "validations": [],
   "relations": {
     "user": {
       "type": "belongsTo",
-      "model": "user",
+      "model": "PLBUser",
       "foreignKey": "userId"
     }
   },

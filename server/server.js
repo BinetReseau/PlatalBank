@@ -60,9 +60,9 @@ passportConfigurator.init();
 app.use(flash());
 
 passportConfigurator.setupModels({
-	userModel: app.models.user,
-	userIdentityModel: app.models.userIdentity,
-	userCredentialModel: app.models.userCredential
+	userModel: app.models.PLBUser,
+	userIdentityModel: app.models.ForeignIdentity,
+	userCredentialModel: app.models.ForeignCredential
 });
 
 for (var name in config) {
@@ -79,7 +79,7 @@ app.get('/auth/fail', function (req, res, next) {
 app.get('/auth/success', ensureLoggedIn('/auth/fail'), function (req, res, next) {
   res.json({
       "user":req.user,
-      "accessToken":req.accessToken
+      "accessToken":req.UserAccessToken
       });
   console.log(req);
   app.models.user.find(function (req, res) {
