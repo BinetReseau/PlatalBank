@@ -87,8 +87,9 @@ app.get('/auth/success', ensureLoggedIn('/auth/fail'), function (req, res, next)
       });
 });
 
-app.get('/auth/logout', function (req, res, next) {
+app.post('/auth/logout', function (req, res, next) {
   req.logout();
+  res.status(204).send("No content")
 });
 
 
