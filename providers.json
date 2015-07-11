@@ -6,7 +6,7 @@
     "module": "passport-ldapauth",
     "authScheme": "ldap",
     "failureRedirect": "/auth/fail",
-    "succesRedirect": "/auth/success",
+    "successRedirect": "/auth/success",
     "LdapAttributeForLogin": "uid",
     "LdapAttributeForMail" : "mail",
     "LdapAttributeForUsername" : "cn",
