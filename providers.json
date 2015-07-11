@@ -1,0 +1,20 @@
+{
+  "ldap": {
+    "provider": "ldap",
+    "usernameField": "username",
+    "passwordField": "password",
+    "module": "passport-ldapauth",
+    "authScheme": "ldap",
+    "failureRedirect": "/auth/fail",
+    "successRedirect": "/auth/success",
+    "LdapAttributeForLogin": "uid",
+    "LdapAttributeForMail" : "mail",
+    "LdapAttributeForUsername" : "cn",
+    "server": {
+      "url": "ldap://frankiz:389",
+      "searchBase": "dc=frankiz,dc=net",
+      "searchFilter": "(uid={{username}})",
+      "verbose": true
+    }
+  }
+}

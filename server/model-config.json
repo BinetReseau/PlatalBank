@@ -1,24 +1,26 @@
 {
   "_meta": {
     "sources": [
-      "loopback/common/models",
-      "loopback/server/models",
       "../common/models",
-      "./models"
-    ],
-    "mixins": [
-      "loopback/common/mixins",
-      "loopback/server/mixins",
-      "../common/mixins",
-      "./mixins"
+      "./models",
+      "./node_modules/loopbackcomponentpassport/lib/models"
     ]
   },
-  "User": {
-    "dataSource": "db"
-  },
-  "AccessToken": {
+  "PLBUser": {
     "dataSource": "db",
-    "public": false
+    "public": true
+  },
+  "UserAccessToken": {
+    "dataSource": "db",
+    "public": true
+  },
+  "ForeignCredential": {
+    "dataSource": "db",
+    "public": true
+  },
+  "ForeignIdentity": {
+    "dataSource": "db",
+    "public": true
   },
   "ACL": {
     "dataSource": "db",

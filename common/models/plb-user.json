@@ -1,0 +1,25 @@
+{
+  "name": "PLBUser",
+  "plural": "PLBUsers",
+  "base": "User",
+  "relations": {
+    "accessTokens": {
+      "type": "hasMany",
+      "model": "UserAccessToken",
+      "foreignKey": "userId"
+    },
+    "identities": {
+      "type": "hasMany",
+      "model": "ForeignIdentity",
+      "foreignKey": "userId"
+    },
+    "credentials": {
+      "type": "hasMany",
+      "model": "ForeignCredential",
+      "foreignKey": "userId"
+    }
+  },
+  "validations": [],
+  "acls": [],
+  "methods": []
+}

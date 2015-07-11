@@ -3,19 +3,27 @@
   "version": "1.0.0",
   "main": "server/server.js",
   "scripts": {
+    "start": "node server/server.js",
     "pretest": "jshint ."
   },
   "dependencies": {
+    "body-parser": "^1.9.0",
     "compression": "^1.0.3",
-    "cors": "^2.5.2",
+    "connect-ensure-login": "^0.1.1",
+    "cors": "^2.7.1",
     "errorhandler": "^1.1.1",
     "loopback": "^2.14.0",
     "loopback-boot": "^2.6.5",
     "loopback-datasource-juggler": "^2.19.0",
-    "serve-favicon": "^2.0.1"
+    "serve-favicon": "^2.0.1",
+    "express-session": "^1.7.6",
+    "loopback-component-passport": "^1.5.0",
+    "passport": "^0.2.0",
+    "passport-ldapauth": "^0.3.0",
+    "express-flash": "^0.0.2"
   },
   "optionalDependencies": {
-    "loopback-explorer": "^1.1.0"
+    "loopback-explorer": "^1.2.9"
   },
   "devDependencies": {
     "jshint": "^2.5.6"
