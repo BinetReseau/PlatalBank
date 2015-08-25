@@ -1,7 +1,4 @@
 from django.db import models
-import enum
-
-
 
 class Transaction(models.Model):
     # when the transaction has been freshly created. No-one has accepted/rejected it yet.
