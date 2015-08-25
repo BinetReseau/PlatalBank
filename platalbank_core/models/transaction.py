@@ -24,7 +24,7 @@ class Transaction(models.Model):
 
     state = models.CharField(max_length=1, choices=_STATE_CHOICES,default=PENDING)
     amount = models.DecimalField(max_digits=20, decimal_places=2)
-    label = models.CharField()
+    label = models.CharField(max_length=1024)
 
     debited_account = models.ForeignKey("Account")
     credited_account = models.ForeignKey("Account")
