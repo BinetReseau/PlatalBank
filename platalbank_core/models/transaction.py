@@ -1,4 +1,5 @@
 from django.db import models
+from django.conf import settings
 
 class Transaction(models.Model):
     # when the transaction has been freshly created. No-one has accepted/rejected it yet.
@@ -27,8 +28,7 @@ class Transaction(models.Model):
     credited_account = models.ForeignKey("Account")
     event = models.ForeignKey("Event")
 
-    #todo : author
-
+    author = models.ForeignKey(settings.AUTH_USER_MODEL)
 
 
             
