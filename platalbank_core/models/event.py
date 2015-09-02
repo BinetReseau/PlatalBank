@@ -6,5 +6,7 @@ class Event(models.Models)
     through_khube = models.BooleanField()
     # whether new transactions can be added
     writable = models.BooleanField()
+    owner = models.CharField(max_length=1024)
+
 
 
