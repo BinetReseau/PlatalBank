@@ -15,6 +15,6 @@ class User(AbstractUser):
         return tuple()
 
     def get_rw_legalpeople(self):
-        """return all legal people this user has read-only permissions on"""
+        """return all legal people this user has read-write permissions on"""
         # TODO: LDAP stuff
         return tuple()
