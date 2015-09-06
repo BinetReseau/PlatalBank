@@ -6,4 +6,4 @@ class Event(models.Model):
     through_khube = models.BooleanField()
     # whether new transactions can be added
     writable = models.BooleanField()
-    # TODO: owner = models.ForeignKey("LegalPerson")
+    owner = models.ForeignKey("LegalPerson")

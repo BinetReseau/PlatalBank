@@ -28,4 +28,4 @@ class Transaction(models.Model):
     credited_account = models.ForeignKey("Account", related_name="in_transactions")
     event = models.ForeignKey("Event")
 
-    # TODO: author = models.ForeignKey(settings.AUTH_USER_MODEL)
+    author = models.ForeignKey(settings.AUTH_USER_MODEL)
