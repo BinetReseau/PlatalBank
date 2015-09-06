@@ -7,6 +7,3 @@ class Event(models.Models)
     # whether new transactions can be added
     writable = models.BooleanField()
     owner = models.CharField(max_length=1024)
-
-
-

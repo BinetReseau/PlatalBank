@@ -29,6 +29,3 @@ class Transaction(models.Model):
     event = models.ForeignKey("Event")
 
     author = models.ForeignKey(settings.AUTH_USER_MODEL)
-
-
-            
