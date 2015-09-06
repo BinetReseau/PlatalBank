@@ -24,8 +24,8 @@ class Transaction(models.Model):
     amount = models.DecimalField(max_digits=20, decimal_places=2)
     label = models.CharField(max_length=1024)
 
-    debited_account = models.ForeignKey("Account")
-    credited_account = models.ForeignKey("Account")
+    debited_account = models.ForeignKey("Account", related_name="out_transactions")
+    credited_account = models.ForeignKey("Account", related_name="in_transactions")
     event = models.ForeignKey("Event")
 
     author = models.ForeignKey(settings.AUTH_USER_MODEL)
