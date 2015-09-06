@@ -21,8 +21,8 @@ class FrankizLDAPBackend(LDAPBackend):
         last_name =  _get("sn", username).lower().title()
         first_name = _get("cn", username).lower().replace(last_name.lower(), "").strip().title() or username
         email = _get("mail", username+"@polytechnique.edu")
-        phone = _get("brIP", "")
-        room = _get("brIP", "")
+        phone = _get("brIP", "") # FIXME FIXME FIXME: Make this real when switching to new ldap
+        room = _get("brIP", "")  # FIXME FIXME FIXME: Make this real when switching to new ldap
 
         kwargs = {
             'username__iexact': username,
