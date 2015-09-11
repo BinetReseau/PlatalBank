@@ -1,4 +1,5 @@
 *.csv
+*.sqlite*
 *.dat
 *.iml
 *.log
@@ -10,6 +11,8 @@
 *.swp
 *.tgz
 *.xml
+*.pyc
+*~
 .DS_Store
 .idea
 .project

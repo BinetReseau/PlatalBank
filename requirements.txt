@@ -1,0 +1,4 @@
+django
+git+https://github.com/rbarrois/python-ldap.git@py3
+django-auth-ldap
+djangorestframework
