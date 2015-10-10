@@ -1,3 +1,4 @@
+import django.db
 from django.db import models
 from django.conf import settings
 from rest_framework import serializers, viewsets
@@ -33,6 +34,14 @@ class Transaction(models.Model):
 
     def __str__(self):
         return self.label
+
+    @django.db.transaction.atomic()
+    def save(self, *args, **kwargs):
+        self.debited_account.balance -= self.amount
+        self.credited_account.balance += self.amount
+        self.debited_account.save()
+        self.credited_account.save()
+        super(Transaction, self).save(*args, **kwargs)
 
 class TransactionSerializer(serializers.ModelSerializer):
     class Meta:
