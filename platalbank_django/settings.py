@@ -40,11 +40,12 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-
-    'platalbank_core'
+    'corsheaders',
+    'platalbank_core',
 )
 
 MIDDLEWARE_CLASSES = (
+    'corsheaders.middleware.CorsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -106,7 +107,10 @@ USE_L10N = True
 USE_TZ = True
 
 REST_FRAMEWORK = {
-    'PAGE_SIZE': 20
+    'DEFAULT_PERMISSION_CLASSES' :[
+        'rest_framework.permissions.AllowAny', #TODO
+    ],
+    'PAGE_SIZE': 20,
 }
 
 # Static files (CSS, JavaScript, Images)
@@ -114,3 +118,6 @@ REST_FRAMEWORK = {
 
 STATIC_URL = '/static/'
 
+# CORS headers
+
+CORS_ORIGIN_ALLOW_ALL = True
