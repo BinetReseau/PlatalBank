@@ -1,5 +1,7 @@
 from rest_framework.response import Response
-from rest_framework import viewsets , exceptions , decorators
+from rest_framework import viewsets
+from rest_framework.decorators import detail_route
+from django.http import HttpResponse
 
 from platalbank_core.models import Transaction
 from platalbank_core.serializers import TransactionSerializer
@@ -8,28 +10,30 @@ class TransactionViewSet(viewsets.ModelViewSet):
     queryset = Transaction.objects.all()
     serializer_class = TransactionSerializer
 
-    @decorators.detail_route(methods="post")
+    @detail_route(methods=['post'])
     def setState(self, request, pk=None):
 
         try :
-            transaction = Transaction.object.get(id=pk)
-        except Transaction.doesNotExist:
-            return HttpResponse(status=404)
+            transaction = Transaction.objects.get(id=pk)
+        except Exception as e:
+            return Response({'status':e.__str__()})
+
+        state = request.data.get('state')
 
         #Une fois les permissions implementees, ce type de changement d'etat demandera des permissions Khube ou User
-        if (request.state in [Transaction.AUTHORIZED , Transaction.REJECTED]):
-            transaction.state = Transaction._STATE_CHOICES(request.state)
+        if (state in [Transaction.AUTHORIZED , Transaction.REJECTED]):
+            transaction.state = state
             transaction.save()
 
-            return Response({'status':'Transaction {0}'.format(Tansaction._STATE_CHOICES(request.state))})
+            return Response({'status':'Transaction saved'})
 
         #Ce type de changement d'etat demandera des permissions seller
-        elif (request.state in [Transaction.ABORTED,Transaction.COMPLETED]):
-            transaction.state = Transaction._STATE_CHOICES(request.state)
+        elif (state in [Transaction.ABORTED,Transaction.COMPLETED]):
+            transaction.state = state
 
             transaction.save()
 
-            return Response({'status':'Transaction {0}'.format(Tansaction._STATE_CHOICES(request.state))})
+            return Response({'status':'Transaction saved'})
 
         else :
-            return exceptions.PermissionDenied()
+            return Response({'status':state})
