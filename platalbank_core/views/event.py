@@ -21,6 +21,6 @@ class EventViewSet(viewsets.ModelViewSet):
     	if True:
     		event.writable = False
     		event.save()
-    		return Response({'status':'Event closed'})
+    		return Response({'status':'ok','msg':'Event Closed'})
     	else :
     		raise exceptions.PermissionDenied
