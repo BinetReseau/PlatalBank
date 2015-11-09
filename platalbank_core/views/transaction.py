@@ -26,14 +26,14 @@ class TransactionViewSet(viewsets.ModelViewSet):
             transaction.state = state
             transaction.save()
 
-            return Response({'status':'Transaction saved'})
+            return Response({'status':'State modified'})
 
         #Ce type de changement d'etat demandera des permissions seller
         elif (state in [Transaction.ABORTED,Transaction.COMPLETED]):
             transaction.state = state
             transaction.save()
 
-            return Response({'status':'Transaction saved'})
+            return Response({'status':'State modified'})
 
         else :
             raise exceptions.PermissionDenied
