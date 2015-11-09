@@ -1,5 +1,6 @@
 from rest_framework.response import Response
 from rest_framework import viewsets
+from rest_framework import exceptions
 from rest_framework.decorators import detail_route
 from django.http import HttpResponse
 
@@ -15,8 +16,8 @@ class TransactionViewSet(viewsets.ModelViewSet):
 
         try :
             transaction = Transaction.objects.get(id=pk)
-        except Exception as e:
-            return Response({'status':e.__str__()})
+        except Transaction.DoesNotExist:
+            return HttpResponse(status=404)
 
         state = request.data.get('state')
 
@@ -30,10 +31,9 @@ class TransactionViewSet(viewsets.ModelViewSet):
         #Ce type de changement d'etat demandera des permissions seller
         elif (state in [Transaction.ABORTED,Transaction.COMPLETED]):
             transaction.state = state
-
             transaction.save()
 
             return Response({'status':'Transaction saved'})
 
         else :
-            return Response({'status':state})
+            raise exceptions.PermissionDenied
