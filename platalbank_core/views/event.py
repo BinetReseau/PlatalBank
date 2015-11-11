@@ -15,7 +15,7 @@ class EventViewSet(viewsets.ModelViewSet):
     	try:
     		event = Event.objects.get(id=pk)
     	except Event.DoesNotExist:
-    		HttpResponse(status=404)
+    		return HttpResponse(status=404)
 
     	#On prevoit l'emplacement logique pour une verification de la permission
     	if True:
