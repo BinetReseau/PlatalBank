@@ -42,7 +42,7 @@ class TransactionTests(APITestCase):
             debited_account=self.accA,
             credited_account=self.accB,
             event=self.event
-        ).save()
+        )
         self.accA, self.accB = reload(self.accA), reload(self.accB)
         self.assertEqual(self.accA.balance, 3700)
         self.assertEqual(self.accB.balance, 1837)
@@ -54,7 +54,7 @@ class TransactionTests(APITestCase):
             debited_account=self.accA,
             credited_account=self.accB,
             event=self.event
-        ).save()
+        )
         self.assertEqual(Transaction.objects.get(id=1).state, 'P')
         url = reverse('transaction-setState',args=[1])
         data = {'state': 'C'}
