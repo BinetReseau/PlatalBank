@@ -24,6 +24,8 @@ class Transaction(models.Model):
     state = models.CharField(max_length=1, choices=_STATE_CHOICES,default=PENDING)
     amount = models.BigIntegerField() # Number of cents transferred
     label = models.CharField(max_length=1024)
+    timestamp = models.DateTimeField(auto_now_add=True)
+    last_modified = models.DateTimeField(auto_now=True)
 
     debited_account = models.ForeignKey("Account", related_name="out_transactions")
     credited_account = models.ForeignKey("Account", related_name="in_transactions")
